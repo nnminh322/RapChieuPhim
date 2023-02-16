@@ -78,7 +78,36 @@ public class PhimDAO implements DAOInterface<PhimModel> {
 
     @Override
     public ArrayList<PhimModel> find(String Condition) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ArrayList<PhimModel> listPhimModel = new ArrayList<PhimModel>();
+
+        try {
+            java.sql.Connection conn = new ConnectionToDB().getConnection();
+
+            java.sql.Statement st = conn.createStatement();
+
+            String sql = "SELECT * FROM `PHIM` WHERE `MAPHIM` LIKE '%" + Condition + "%'";
+
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                String maPhim = rs.getString("MAPHIM");
+                String tenPhim = rs.getString("TENPHIM");
+                String theLoai = rs.getString("THELOAI");
+                String nhaSX = rs.getString("NHASX");
+                int nam = Integer.parseInt(rs.getString("NAM"));
+                int thoiLuong = Integer.parseInt(rs.getString("THOILUONG"));
+                int doTuoi = Integer.parseInt(rs.getString("DOTUOI"));
+                int gia = Integer.parseInt(rs.getString("GIA"));
+
+                PhimModel phimModel = new PhimModel(maPhim, tenPhim, theLoai, nhaSX, nam, thoiLuong, doTuoi, gia);
+                listPhimModel.add(phimModel);
+            }
+            ConnectionToDB.close(conn);
+
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(PhimDAO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        return listPhimModel;
     }
 
     @Override

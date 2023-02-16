@@ -92,7 +92,33 @@ public class VeDAO implements DAOInterface<VeModel> {
 
     @Override
     public ArrayList<VeModel> find(String Condition) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ArrayList<VeModel> listVeModel = new ArrayList<VeModel>();
+
+        try {
+            java.sql.Connection conn = new ConnectionToDB().getConnection();
+
+            java.sql.Statement st = conn.createStatement();
+
+            String sql = "SELECT * FROM `VE` WHERE `MAVE` LIKE '%"+Condition+"%'";
+
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                String maVe = rs.getString("MAVE");
+                String maGhe = rs.getString("MAGHE");
+                String maSuatChieu = rs.getString("MASUATCHIEU");
+                String maPhim = rs.getString("MAPHIM");
+
+                VeModel veModel = new VeModel(maVe, maGhe, maSuatChieu, maPhim);
+                listVeModel.add(veModel);
+            }
+            ConnectionToDB.close(conn);
+
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(VeDAO.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        return listVeModel;
     }
 
     @Override

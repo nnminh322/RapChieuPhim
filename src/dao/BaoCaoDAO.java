@@ -92,7 +92,33 @@ public class BaoCaoDAO implements DAOInterface<BaoCaoModel> {
 
     @Override
     public ArrayList<BaoCaoModel> find(String Condition) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                ArrayList<BaoCaoModel> listBaoCaoModel = new ArrayList<BaoCaoModel>();
+
+        try {
+            java.sql.Connection conn = new ConnectionToDB().getConnection();
+
+            java.sql.Statement st = conn.createStatement();
+
+            String sql = "SELECT * FROM `BAOCAO` WHERE `MABAOCAO` LIKE '%"+Condition+"%'";
+
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                String maBaocao = rs.getString("MABAOCAO");
+                String tenBaocao = rs.getString("TENBAOCAO");
+                String link = rs.getString("LINK");
+
+                BaoCaoModel baoCaoModel = new BaoCaoModel(maBaocao, tenBaocao, link);
+                listBaoCaoModel.add(baoCaoModel);
+
+            }
+            ConnectionToDB.close(conn);
+
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(BaoCaoDAO.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        return listBaoCaoModel;
     }
 
     @Override

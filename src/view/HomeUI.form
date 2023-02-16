@@ -68,7 +68,7 @@
                                       <EmptySpace min="0" pref="27" max="32767" attributes="0"/>
                                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                                      <Component id="jTextField1" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="jTextField_TuKhoaPhim" min="-2" pref="101" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                                       <Component id="jButton_TimKiemPhim" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="254" max="-2" attributes="0"/>
@@ -94,7 +94,7 @@
                               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jButton_TimKiemPhim" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextField_TuKhoaPhim" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
@@ -126,7 +126,7 @@
                 <Property name="text" type="java.lang.String" value="T&#x1eeb; kho&#xe1;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="jTextField_TuKhoaPhim">
             </Component>
             <Component class="javax.swing.JButton" name="jButton_TimKiemPhim">
               <Properties>
@@ -258,7 +258,7 @@
                               <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                              <Component id="jTextField2" min="-2" pref="132" max="-2" attributes="0"/>
+                              <Component id="jTextField_TuKhoaSuatChieu" min="-2" pref="132" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                               <Component id="jButton_TimKiemSuatChieu" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
@@ -281,7 +281,7 @@
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField_TuKhoaSuatChieu" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton_TimKiemSuatChieu" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton_ThemMoiSuatChieu" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -304,7 +304,7 @@
                 <Property name="text" type="java.lang.String" value="T&#x1eeb; kho&#xe1;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
+            <Component class="javax.swing.JTextField" name="jTextField_TuKhoaSuatChieu">
             </Component>
             <Component class="javax.swing.JButton" name="jButton_TimKiemSuatChieu">
               <Properties>
@@ -429,7 +429,7 @@
                               <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="jTextField3" min="-2" pref="151" max="-2" attributes="0"/>
+                              <Component id="jTextField_TuKhoaPhongChieu" min="-2" pref="151" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                               <Component id="jButton_TimKiemPhongChieu" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
@@ -462,7 +462,7 @@
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField_TuKhoaPhongChieu" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton_TimKiemPhongChieu" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton_ThemMoiPhongChieu" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -478,7 +478,7 @@
                 <Property name="text" type="java.lang.String" value="T&#x1eeb; kho&#xe1;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField3">
+            <Component class="javax.swing.JTextField" name="jTextField_TuKhoaPhongChieu">
             </Component>
             <Component class="javax.swing.JButton" name="jButton_TimKiemPhongChieu">
               <Properties>
@@ -574,7 +574,7 @@
                               <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
-                              <Component id="jTextField4" min="-2" pref="124" max="-2" attributes="0"/>
+                              <Component id="jTextField_TuKhoaGhe" min="-2" pref="124" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                               <Component id="jButton_TimKiemGhe" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="161" max="32767" attributes="0"/>
@@ -600,7 +600,7 @@
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField_TuKhoaGhe" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton_TimKiemGhe" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton_ThemMoiGhe" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -627,7 +627,7 @@
                 <Property name="text" type="java.lang.String" value="T&#x1eeb; kho&#xe1;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4">
+            <Component class="javax.swing.JTextField" name="jTextField_TuKhoaGhe">
             </Component>
             <Component class="javax.swing.JButton" name="jButton_TimKiemGhe">
               <Properties>
@@ -735,7 +735,7 @@
                               <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                              <Component id="jTextField5" min="-2" pref="128" max="-2" attributes="0"/>
+                              <Component id="jTextField_TuKhoaVe" min="-2" pref="128" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                               <Component id="jButton_TimKiemVe" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
@@ -762,7 +762,7 @@
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField_TuKhoaVe" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton_TimKiemVe" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton_ThemMoiVe" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -791,7 +791,7 @@
                 <Property name="text" type="java.lang.String" value="T&#x1eeb; kho&#xe1;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField5">
+            <Component class="javax.swing.JTextField" name="jTextField_TuKhoaVe">
             </Component>
             <Component class="javax.swing.JButton" name="jButton_TimKiemVe">
               <Properties>
@@ -890,7 +890,7 @@
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-                      <Component id="jTextField6" min="-2" pref="139" max="-2" attributes="0"/>
+                      <Component id="jTextField_TuKhoaBaoCao" min="-2" pref="139" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                       <Component id="jButton_TimKiemBaoCao" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
@@ -914,7 +914,7 @@
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField_TuKhoaBaoCao" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton_TimKiemBaoCao" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton_ThemMoiBaoCao" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -942,7 +942,7 @@
                 <Property name="text" type="java.lang.String" value="T&#x1eeb; kho&#xe1;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField6">
+            <Component class="javax.swing.JTextField" name="jTextField_TuKhoaBaoCao">
             </Component>
             <Component class="javax.swing.JButton" name="jButton_TimKiemBaoCao">
               <Properties>

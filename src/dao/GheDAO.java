@@ -90,7 +90,32 @@ public class GheDAO implements DAOInterface<GheModel> {
 
     @Override
     public ArrayList<GheModel> find(String Condition) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                ArrayList<GheModel> listGhe = new ArrayList<GheModel>();
+
+        try {
+            java.sql.Connection conn = new ConnectionToDB().getConnection();
+
+            java.sql.Statement st = conn.createStatement();
+
+            String sql = "SELECT * FROM GHE WHERE `MAGHE` LIKE '%"+Condition+"%'";
+
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+
+                String maGhe = rs.getString("MAGHE");
+                String maPhong = rs.getString("MAPHONG");
+                int giaGhe = Integer.parseInt(rs.getString("GIAGHE"));
+                int soGhe = Integer.parseInt(rs.getString("SOGHE"));
+                int hangGhe = rs.getInt("HANGGHE");
+                boolean trangThaiGhe = rs.getBoolean("TRANGTHAIGHE");
+                GheModel gheModel = new GheModel(maGhe, maPhong, giaGhe, soGhe, hangGhe, trangThaiGhe);
+                listGhe.add(gheModel);
+            }
+            ConnectionToDB.close(conn);
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(GheDAO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        return listGhe;
     }
 
     @Override

@@ -92,7 +92,36 @@ public class PhongChieuDAO implements DAOInterface<PhongChieuModel> {
 
     @Override
     public ArrayList<PhongChieuModel> find(String Condition) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ArrayList<PhongChieuModel> listPhongChieu = new ArrayList<PhongChieuModel>();
+
+        try {
+            java.sql.Connection conn = new ConnectionToDB().getConnection();
+
+            java.sql.Statement st = conn.createStatement();
+
+            String sql = "SELECT * FROM PHONGCHIEU WHERE `MAPHONGCHIEU` LIKE '%"+Condition+"%'";
+            
+            System.out.println(sql);
+
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+
+                String maPhongChieu = rs.getString("MAPHONGCHIEU");
+                String tenPhongChieu = rs.getString("TENPHONGCHIEU");
+                int sucChua = Integer.parseInt(rs.getString("SUCCHUA"));
+                int soLuongGheTrong = Integer.parseInt(rs.getString("SOLUONGGHETRONG"));
+
+                PhongChieuModel phongChieuModel = new PhongChieuModel(maPhongChieu, tenPhongChieu, sucChua, soLuongGheTrong);
+                listPhongChieu.add(phongChieuModel);
+            }
+            ConnectionToDB.close(conn);
+
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(PhongChieuDAO.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        return listPhongChieu;
     }
 
     @Override

@@ -93,7 +93,32 @@ public class SuatChieuDAO implements DAOInterface<SuatChieuModel> {
 
     @Override
     public ArrayList<SuatChieuModel> find(String Condition) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                ArrayList<SuatChieuModel> listSuatChieu = new ArrayList<SuatChieuModel>();
+
+        try {
+            java.sql.Connection conn = new ConnectionToDB().getConnection();
+
+            java.sql.Statement st = conn.createStatement();
+
+            String sql = "SELECT SC.MASUATCHIEU, SC.MAPHIM, P.TENPHIM, SC.KHUNGGIO FROM SUATCHIEU SC JOIN PHIM P ON SC.MAPHIM = P.MAPHIM WHERE `MASUATCHIEU` LIKE '%"+Condition+"%';";
+
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                String maSuatChieu = rs.getString("MASUATCHIEU");
+                String khungGio = rs.getString("KHUNGGIO");
+                String tenPhim = rs.getString("TENPHIM");
+                String maPhim = rs.getString("MAPHIM");
+
+                SuatChieuModel suatChieuModel = new SuatChieuModel(maSuatChieu, khungGio, tenPhim, maPhim);
+                listSuatChieu.add(suatChieuModel);
+            }
+            ConnectionToDB.close(conn);
+
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(PhimDAO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        return listSuatChieu;
     }
 
     @Override

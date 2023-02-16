@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import model.BaoCaoModel;
 import model.GheModel;
@@ -163,6 +164,92 @@ public class HomeUI extends javax.swing.JFrame {
         }
     }
 
+    public void timKiemPhim(ArrayList<PhimModel> listPhimModel) {
+        DefaultTableModel model = (DefaultTableModel) jTable_Phim.getModel();
+        model.setRowCount(0);
+        for (PhimModel phimModel : listPhimModel) {
+            Object[] row = {
+                phimModel.getMaPhim(),
+                phimModel.getTenPhim(),
+                phimModel.getTheLoai(),
+                phimModel.getDoTuoi(),
+                phimModel.getThoiLuong(),
+                phimModel.getGia(),};
+            model.addRow(row);
+        }
+
+    }
+
+    public void timKiemSuatChieu(ArrayList<SuatChieuModel> listSuatChieuModel) {
+        DefaultTableModel model = (DefaultTableModel) jTable_SuatChieu.getModel();
+        model.setRowCount(0);
+        for (SuatChieuModel suatChieuModel : listSuatChieuModel) {
+            Object[] row = {
+                suatChieuModel.getMaSuatChieu(),
+                suatChieuModel.getMaPhim(),
+                suatChieuModel.getTenPhim(),
+                suatChieuModel.getKhungGio(),};
+
+            model.addRow(row);
+        }
+    }
+
+    public void timKiemPhongChieu(ArrayList<PhongChieuModel> listPhongChieuModel) {
+        DefaultTableModel model = (DefaultTableModel) jTable_PhongChieu.getModel();
+        model.setRowCount(0);
+        for (PhongChieuModel phongChieuModel : listPhongChieuModel) {
+            Object[] row = {
+                phongChieuModel.getMaPhongChieu(),
+                phongChieuModel.getTenPhongChieu(),
+                phongChieuModel.getSucChua(),
+                phongChieuModel.getSoLuongGheTrong(),};
+
+            model.addRow(row);
+        }
+    }
+
+    public void timKiemGhe(ArrayList<GheModel> listGheModel) {
+        DefaultTableModel model = (DefaultTableModel) jTable_Ghe.getModel();
+        model.setRowCount(0);
+        for (GheModel gheModel : listGheModel) {
+            Object[] row = {
+                gheModel.getMaGhe(),
+                gheModel.getHangGhe(),
+                gheModel.getSoGhe(),
+                gheModel.isTrangThaiGhe(),
+                gheModel.getMaPhong(),
+                gheModel.getGiaGhe()};
+
+            model.addRow(row);
+        }
+    }
+
+    public void timKiemVe(ArrayList<VeModel> listVeModel) {
+        DefaultTableModel model = (DefaultTableModel) jTable_Ve.getModel();
+        model.setRowCount(0);
+        for (VeModel veModel : listVeModel) {
+            Object[] row = {
+                veModel.getMaVe(),
+                veModel.getMaPhim(),
+                veModel.getMaSuatChieu(),
+                veModel.getMaGhe(),};
+
+            model.addRow(row);
+        }
+    }
+
+    public void timKiemBaoCao(ArrayList<BaoCaoModel> listBaoCaoModel) {
+        DefaultTableModel model = (DefaultTableModel) jTable_BaoCao.getModel();
+        model.setRowCount(0);
+        for (BaoCaoModel baoCaoModel : listBaoCaoModel) {
+            Object[] row = {
+                baoCaoModel.getMaBaoCao(),
+                baoCaoModel.getTenBaoCao(),
+                baoCaoModel.getLink(),};
+            model.addRow(row);
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -175,7 +262,7 @@ public class HomeUI extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextField_TuKhoaPhim = new javax.swing.JTextField();
         jButton_TimKiemPhim = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jButton_SuaPhim = new javax.swing.JButton();
@@ -186,7 +273,7 @@ public class HomeUI extends javax.swing.JFrame {
         jButton_XoaPhim = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTextField_TuKhoaSuatChieu = new javax.swing.JTextField();
         jButton_TimKiemSuatChieu = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jButton_SuaSuatChieu = new javax.swing.JButton();
@@ -197,7 +284,7 @@ public class HomeUI extends javax.swing.JFrame {
         jButton_ThemMoiSuatChieu = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jTextField_TuKhoaPhongChieu = new javax.swing.JTextField();
         jButton_TimKiemPhongChieu = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -207,7 +294,7 @@ public class HomeUI extends javax.swing.JFrame {
         jButton_ThemMoiPhongChieu = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        jTextField_TuKhoaGhe = new javax.swing.JTextField();
         jButton_TimKiemGhe = new javax.swing.JButton();
         jButton_SuaGhe = new javax.swing.JButton();
         jButton_XoaGhe = new javax.swing.JButton();
@@ -217,7 +304,7 @@ public class HomeUI extends javax.swing.JFrame {
         jTable_Ghe = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        jTextField_TuKhoaVe = new javax.swing.JTextField();
         jButton_TimKiemVe = new javax.swing.JButton();
         jButton_ThemMoiVe = new javax.swing.JButton();
         jButton_SuaVe = new javax.swing.JButton();
@@ -228,7 +315,7 @@ public class HomeUI extends javax.swing.JFrame {
         jButton_InVe = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        jTextField_TuKhoaBaoCao = new javax.swing.JTextField();
         jButton_TimKiemBaoCao = new javax.swing.JButton();
         jButton_ThemMoiBaoCao = new javax.swing.JButton();
         jScrollPane12 = new javax.swing.JScrollPane();
@@ -308,7 +395,7 @@ public class HomeUI extends javax.swing.JFrame {
                                 .addGap(0, 27, Short.MAX_VALUE)
                                 .addComponent(jLabel1)
                                 .addGap(98, 98, 98)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField_TuKhoaPhim, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(40, 40, 40)
                                 .addComponent(jButton_TimKiemPhim)
                                 .addGap(254, 254, 254))
@@ -327,7 +414,7 @@ public class HomeUI extends javax.swing.JFrame {
                         .addGap(45, 45, 45)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton_TimKiemPhim)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_TuKhoaPhim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
                         .addGap(56, 56, 56))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -414,7 +501,7 @@ public class HomeUI extends javax.swing.JFrame {
                         .addGap(68, 68, 68)
                         .addComponent(jLabel2)
                         .addGap(79, 79, 79)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField_TuKhoaSuatChieu, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(51, 51, 51)
                         .addComponent(jButton_TimKiemSuatChieu)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -432,7 +519,7 @@ public class HomeUI extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_TuKhoaSuatChieu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_TimKiemSuatChieu)
                     .addComponent(jButton_ThemMoiSuatChieu))
                 .addGap(67, 67, 67)
@@ -493,7 +580,7 @@ public class HomeUI extends javax.swing.JFrame {
                         .addGap(81, 81, 81)
                         .addComponent(jLabel3)
                         .addGap(40, 40, 40)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField_TuKhoaPhongChieu, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50)
                         .addComponent(jButton_TimKiemPhongChieu)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -519,7 +606,7 @@ public class HomeUI extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_TuKhoaPhongChieu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_TimKiemPhongChieu)
                     .addComponent(jButton_ThemMoiPhongChieu))
                 .addGap(44, 44, 44)
@@ -575,7 +662,7 @@ public class HomeUI extends javax.swing.JFrame {
                         .addGap(91, 91, 91)
                         .addComponent(jLabel4)
                         .addGap(83, 83, 83)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField_TuKhoaGhe, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60)
                         .addComponent(jButton_TimKiemGhe)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
@@ -595,7 +682,7 @@ public class HomeUI extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_TuKhoaGhe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_TimKiemGhe)
                     .addComponent(jButton_ThemMoiGhe))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -661,7 +748,7 @@ public class HomeUI extends javax.swing.JFrame {
                         .addGap(73, 73, 73)
                         .addComponent(jLabel5)
                         .addGap(61, 61, 61)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField_TuKhoaVe, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(96, 96, 96)
                         .addComponent(jButton_TimKiemVe)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -682,7 +769,7 @@ public class HomeUI extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_TuKhoaVe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_TimKiemVe)
                     .addComponent(jButton_ThemMoiVe))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -746,7 +833,7 @@ public class HomeUI extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addComponent(jLabel6)
                 .addGap(91, 91, 91)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextField_TuKhoaBaoCao, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(84, 84, 84)
                 .addComponent(jButton_TimKiemBaoCao)
                 .addGap(103, 103, 103)
@@ -766,7 +853,7 @@ public class HomeUI extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_TuKhoaBaoCao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_TimKiemBaoCao)
                     .addComponent(jButton_ThemMoiBaoCao))
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -903,12 +990,12 @@ public class HomeUI extends javax.swing.JFrame {
     private javax.swing.JTable jTable_PhongChieu;
     private javax.swing.JTable jTable_SuatChieu;
     private javax.swing.JTable jTable_Ve;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField_TuKhoaBaoCao;
+    private javax.swing.JTextField jTextField_TuKhoaGhe;
+    private javax.swing.JTextField jTextField_TuKhoaPhim;
+    private javax.swing.JTextField jTextField_TuKhoaPhongChieu;
+    private javax.swing.JTextField jTextField_TuKhoaSuatChieu;
+    private javax.swing.JTextField jTextField_TuKhoaVe;
     // End of variables declaration//GEN-END:variables
 
     public ThemSuaPhim getThemSuaPhim() {
@@ -1205,6 +1292,54 @@ public class HomeUI extends javax.swing.JFrame {
 
     public void setjButton_XoaBaoCao(JButton jButton_XoaBaoCao) {
         this.jButton_XoaBaoCao = jButton_XoaBaoCao;
+    }
+
+    public JTextField getjTextField_TuKhoaBaoCao() {
+        return jTextField_TuKhoaBaoCao;
+    }
+
+    public void setjTextField_TuKhoaBaoCao(JTextField jTextField_TuKhoaBaoCao) {
+        this.jTextField_TuKhoaBaoCao = jTextField_TuKhoaBaoCao;
+    }
+
+    public JTextField getjTextField_TuKhoaGhe() {
+        return jTextField_TuKhoaGhe;
+    }
+
+    public void setjTextField_TuKhoaGhe(JTextField jTextField_TuKhoaGhe) {
+        this.jTextField_TuKhoaGhe = jTextField_TuKhoaGhe;
+    }
+
+    public JTextField getjTextField_TuKhoaPhim() {
+        return jTextField_TuKhoaPhim;
+    }
+
+    public void setjTextField_TuKhoaPhim(JTextField jTextField_TuKhoaPhim) {
+        this.jTextField_TuKhoaPhim = jTextField_TuKhoaPhim;
+    }
+
+    public JTextField getjTextField_TuKhoaPhongChieu() {
+        return jTextField_TuKhoaPhongChieu;
+    }
+
+    public void setjTextField_TuKhoaPhongChieu(JTextField jTextField_TuKhoaPhongChieu) {
+        this.jTextField_TuKhoaPhongChieu = jTextField_TuKhoaPhongChieu;
+    }
+
+    public JTextField getjTextField_TuKhoaSuatChieu() {
+        return jTextField_TuKhoaSuatChieu;
+    }
+
+    public void setjTextField_TuKhoaSuatChieu(JTextField jTextField_TuKhoaSuatChieu) {
+        this.jTextField_TuKhoaSuatChieu = jTextField_TuKhoaSuatChieu;
+    }
+
+    public JTextField getjTextField_TuKhoaVe() {
+        return jTextField_TuKhoaVe;
+    }
+
+    public void setjTextField_TuKhoaVe(JTextField jTextField_TuKhoaVe) {
+        this.jTextField_TuKhoaVe = jTextField_TuKhoaVe;
     }
 
     public PhimModel getPhim(int selected) {

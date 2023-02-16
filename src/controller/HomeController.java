@@ -13,7 +13,6 @@ import dao.VeDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import model.BaoCaoModel;
 import model.GheModel;
@@ -207,7 +206,28 @@ public class HomeController implements ActionListener {
             }
         }
         if (actionCommand.equals("Tìm kiếm phim")) {
-            
+            String tukhoa = this.homeUI.getjTextField_TuKhoaPhim().getText();
+            this.homeUI.timKiemPhim(this.timKiemPhim(tukhoa));
+        }
+        if (actionCommand.equals("Tìm kiếm suất chiếu")) {
+            String tukhoa = this.homeUI.getjTextField_TuKhoaSuatChieu().getText();
+            this.homeUI.timKiemSuatChieu(this.timKiemSuatChieu(tukhoa));
+        }
+        if (actionCommand.equals("Tìm kiếm phòng chiếu")) {
+            String tukhoa = this.homeUI.getjTextField_TuKhoaPhongChieu().getText();
+            this.homeUI.timKiemPhongChieu(this.timKiemPhongChieu(tukhoa));
+        }
+        if (actionCommand.equals("Tìm kiếm ghế")) {
+            String tukhoa = this.homeUI.getjTextField_TuKhoaGhe().getText();
+            this.homeUI.timKiemGhe(this.timKiemGhe(tukhoa));
+        }
+        if (actionCommand.equals("Tìm kiếm vé")) {
+            String tukhoa = this.homeUI.getjTextField_TuKhoaVe().getText();
+            this.homeUI.timKiemVe(this.timKiemVe(tukhoa));
+        }
+        if (actionCommand.equals("Tìm kiếm báo cáo")) {
+            String tukhoa = this.homeUI.getjTextField_TuKhoaBaoCao().getText();
+            this.homeUI.timKiemBaoCao(this.timKiemBaoCao(tukhoa));
         }
     }
 
@@ -233,5 +253,29 @@ public class HomeController implements ActionListener {
 
     public ArrayList<BaoCaoModel> hienThiBaoCao() {
         return BaoCaoDAO.getInstance().selectAll();
+    }
+
+    public ArrayList<PhimModel> timKiemPhim(String tukhoa) {
+        return PhimDAO.getInstance().find(tukhoa);
+    }
+
+    public ArrayList<SuatChieuModel> timKiemSuatChieu(String tukhoa) {
+        return SuatChieuDAO.getInstance().find(tukhoa);
+    }
+
+    public ArrayList<PhongChieuModel> timKiemPhongChieu(String tukhoa) {
+        return PhongChieuDAO.getInstance().find(tukhoa);
+    }
+
+    public ArrayList<GheModel> timKiemGhe(String tukhoa) {
+        return GheDAO.getInstance().find(tukhoa);
+    }
+
+    public ArrayList<VeModel> timKiemVe(String tukhoa) {
+        return VeDAO.getInstance().find(tukhoa);
+    }
+
+    public ArrayList<BaoCaoModel> timKiemBaoCao(String tukhoa) {
+        return BaoCaoDAO.getInstance().find(tukhoa);
     }
 }
