@@ -61,7 +61,6 @@ public class HomeUI extends javax.swing.JFrame {
         this.jButton_XoaPhongChieu.addActionListener(action);
         this.jButton_XoaSuatChieu.addActionListener(action);
         this.jButton_XoaVe.addActionListener(action);
-
     }
 
     public void hienthi() {
@@ -1346,10 +1345,10 @@ public class HomeUI extends javax.swing.JFrame {
         String maPhim = this.jTable_Phim.getValueAt(selected, 0).toString();
         String tenPhim = this.jTable_Phim.getValueAt(selected, 1).toString();
         String theLoai = this.jTable_Phim.getValueAt(selected, 2).toString();
-        String nhaSX = this.jTable_Phim.getValueAt(selected, 3).toString();
-        int thoiLuong = Integer.parseInt(this.jTable_Phim.getValueAt(selected, 4).toString());
-        int doTuoi = Integer.parseInt(this.jTable_Phim.getValueAt(selected, 5).toString());
-        return new PhimModel(maPhim, tenPhim, theLoai, nhaSX, thoiLuong, doTuoi);
+        int thoiLuong = Integer.parseInt(this.jTable_Phim.getValueAt(selected, 3).toString());
+        int doTuoi = Integer.parseInt(this.jTable_Phim.getValueAt(selected, 4).toString());
+        int gia = Integer.parseInt(this.jTable_Phim.getValueAt(selected, 5).toString());
+        return new PhimModel(maPhim, tenPhim, theLoai, thoiLuong, doTuoi, gia);
     }
 
     public SuatChieuModel getSuatChieu(int selected) {

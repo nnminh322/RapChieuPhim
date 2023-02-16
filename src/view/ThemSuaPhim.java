@@ -67,14 +67,13 @@ public class ThemSuaPhim extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jTextField_TheLoai = new javax.swing.JTextField();
         jTextField_DoTuoi = new javax.swing.JTextField();
         jTextField_NhaSanXuat = new javax.swing.JTextField();
         jTextField_ThoiLuong = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton_Luu = new javax.swing.JButton();
+        jTextField_Gia = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -90,11 +89,7 @@ public class ThemSuaPhim extends javax.swing.JFrame {
 
         jLabel6.setText("Thời lượng");
 
-        jLabel7.setText("Mô tả");
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jLabel7.setText("Giá");
 
         jButton1.setText("Huỷ");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -120,14 +115,8 @@ public class ThemSuaPhim extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton_Luu, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jTextField_TheLoai, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
@@ -136,7 +125,7 @@ public class ThemSuaPhim extends javax.swing.JFrame {
                                     .addComponent(jLabel5)
                                     .addComponent(jTextField_TenPhim)
                                     .addComponent(jTextField_NhaSanXuat))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jLabel2)
@@ -144,7 +133,14 @@ public class ThemSuaPhim extends javax.swing.JFrame {
                                         .addComponent(jLabel6)
                                         .addComponent(jTextField_MaPhim, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
                                         .addComponent(jTextField_ThoiLuong))
-                                    .addComponent(jTextField_DoTuoi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jTextField_DoTuoi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jButton_Luu))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextField_Gia, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1)))
                         .addGap(31, 31, 31))))
         );
         layout.setVerticalGroup(
@@ -177,12 +173,11 @@ public class ThemSuaPhim extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton_Luu)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jTextField_Gia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
+                .addComponent(jButton_Luu)
                 .addGap(30, 30, 30))
         );
 
@@ -245,9 +240,8 @@ public class ThemSuaPhim extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField_DoTuoi;
+    private javax.swing.JTextField jTextField_Gia;
     private javax.swing.JTextField jTextField_MaPhim;
     private javax.swing.JTextField jTextField_NhaSanXuat;
     private javax.swing.JTextField jTextField_TenPhim;
@@ -309,6 +303,14 @@ public class ThemSuaPhim extends javax.swing.JFrame {
 
     public void setjTextField_ThoiLuong(JTextField jTextField_ThoiLuong) {
         this.jTextField_ThoiLuong = jTextField_ThoiLuong;
+    }
+
+    public JTextField getjTextField_Gia() {
+        return jTextField_Gia;
+    }
+
+    public void setjTextField_Gia(JTextField jTextField_Gia) {
+        this.jTextField_Gia = jTextField_Gia;
     }
 
 }

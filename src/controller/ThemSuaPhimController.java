@@ -32,10 +32,9 @@ public class ThemSuaPhimController implements ActionListener {
             String tenPhim = this.themSuaPhim.getjTextField_TenPhim().getText();
             String theLoai = this.themSuaPhim.getjTextField_TheLoai().getText();
             int doTuoi = Integer.parseInt(this.themSuaPhim.getjTextField_DoTuoi().getText());
-            String nhaSX = this.themSuaPhim.getjTextField_NhaSanXuat().getText();
             int thoiLuong = Integer.parseInt(this.themSuaPhim.getjTextField_ThoiLuong().getText());
-
-            this.phimModel = new PhimModel(maPhim, tenPhim, theLoai, nhaSX, thoiLuong, doTuoi);
+            int gia = Integer.parseInt(this.themSuaPhim.getjTextField_Gia().getText());
+            this.phimModel = new PhimModel(maPhim, tenPhim, theLoai, thoiLuong, doTuoi, gia);
             if (this.themSuaPhim.getTitle().equals("Thêm mới phim")) {
                 this.insert(phimModel);
 

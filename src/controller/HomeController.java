@@ -16,10 +16,12 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.BaoCaoModel;
 import model.GheModel;
+import model.InVeModel;
 import model.PhimModel;
 import model.PhongChieuModel;
 import model.SuatChieuModel;
 import model.VeModel;
+import service.InVe;
 import view.HomeUI;
 import view.ThemSuaBaoCao;
 import view.ThemSuaGhe;
@@ -43,7 +45,7 @@ public class HomeController implements ActionListener {
     public ThemSuaVe themSuaVe;
     public ThemSuaBaoCao themSuaBaoCao;
     public XacNhan xacNhan;
-
+    public view.InVe inVe;
     public HomeController(HomeUI homeUI) {
         this.homeUI = homeUI;
     }
@@ -228,6 +230,16 @@ public class HomeController implements ActionListener {
         if (actionCommand.equals("Tìm kiếm báo cáo")) {
             String tukhoa = this.homeUI.getjTextField_TuKhoaBaoCao().getText();
             this.homeUI.timKiemBaoCao(this.timKiemBaoCao(tukhoa));
+        }
+        if (actionCommand.equals("In vé")) {
+            int selected = this.homeUI.getjTable_Ve().getSelectedRow();
+            if (selected == -1) {
+                JOptionPane.showMessageDialog(homeUI, "Bạn chưa chọn vé");
+            }
+            else{
+                InVeModel inVeModel = InVe.getInstance().in(homeUI.getVe(selected));
+                this.inVe = new view.InVe(inVeModel);
+            }
         }
     }
 

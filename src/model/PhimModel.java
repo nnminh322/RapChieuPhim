@@ -30,16 +30,16 @@ public class PhimModel {
         this.gia = gia;
     }
 
-    public PhimModel(String maPhim, String tenPhim, String theLoai, String nhaSX, int thoiLuong, int doTuoi) {
+    public PhimModel(String maPhim, String tenPhim, String theLoai, int thoiLuong, int doTuoi, int gia) {
         this.maPhim = maPhim;
         this.tenPhim = tenPhim;
         this.theLoai = theLoai;
-        this.nhaSX = nhaSX;
-        this.nam = 0;
         this.thoiLuong = thoiLuong;
         this.doTuoi = doTuoi;
-        this.gia = 0;
+        this.gia = gia;
     }
+
+
 
     public String getMaPhim() {
         return maPhim;
