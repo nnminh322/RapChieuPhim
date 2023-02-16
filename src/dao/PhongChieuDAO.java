@@ -101,7 +101,7 @@ public class PhongChieuDAO implements DAOInterface<PhongChieuModel> {
 
             String sql = "SELECT * FROM PHONGCHIEU WHERE `MAPHONGCHIEU` LIKE '%"+Condition+"%'";
             
-            System.out.println(sql);
+//            System.out.println(sql);
 
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
