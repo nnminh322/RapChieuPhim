@@ -4,6 +4,8 @@
  */
 package rapchieuphim;
 
+import view.Login;
+
 /**
  *
  * @author nnminh322
@@ -15,6 +17,8 @@ public class RapChieuPhim {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Login login = new Login();
+        login.setVisible(true);
     }
     
 }

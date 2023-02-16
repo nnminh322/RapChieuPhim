@@ -206,6 +206,9 @@ public class HomeController implements ActionListener {
                 this.xacNhan.setVisible(true);
             }
         }
+        if (actionCommand.equals("Tìm kiếm phim")) {
+            
+        }
     }
 
     public ArrayList<PhimModel> hienThiPhim() {
