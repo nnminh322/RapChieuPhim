@@ -28,7 +28,7 @@ public class BaoCaoDAO implements DAOInterface<BaoCaoModel> {
 
             java.sql.Statement st = conn.createStatement();
 
-            String sql = "INSERT INTO `BAOCAO` (`MABAOCAO`, `TENBAOCAO`, `LINK`) VALUES ('"+t.getMaBaoCao()+"', '"+t.getTenBaoCao()+"', '"+t.getLink()+"')";
+            String sql = "INSERT INTO `BAOCAO` (`MABAOCAO`, `TENBAOCAO`, `LINK`) VALUES ('" + t.getMaBaoCao() + "', '" + t.getTenBaoCao() + "', '" + t.getLink() + "')";
 //            System.out.println(sql);
             ketQua = st.executeUpdate(sql);
 
@@ -40,13 +40,23 @@ public class BaoCaoDAO implements DAOInterface<BaoCaoModel> {
     }
 
     @Override
-    public int update(BaoCaoModel tCu, BaoCaoModel tMoi) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
     public int delete(BaoCaoModel t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int ketQua = 0;
+        try {
+            java.sql.Connection conn = new ConnectionToDB().getConnection();
+
+            java.sql.Statement st = conn.createStatement();
+
+            String sql = "DELETE FROM BAOCAO WHERE `BAOCAO`.`MABAOCAO` = '" + t.getMaBaoCao() + "'";
+
+//            System.out.println(sql);
+            ketQua = st.executeUpdate(sql);
+
+            ConnectionToDB.close(conn);
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(BaoCaoDAO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        return 0;
     }
 
     @Override
@@ -83,6 +93,25 @@ public class BaoCaoDAO implements DAOInterface<BaoCaoModel> {
     @Override
     public ArrayList<BaoCaoModel> find(String Condition) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int update(BaoCaoModel t) {
+        int ketQua = 0;
+        try {
+            java.sql.Connection conn = new ConnectionToDB().getConnection();
+
+            java.sql.Statement st = conn.createStatement();
+
+            String sql = "UPDATE `BAOCAO` SET `TENBAOCAO` = '" + t.getTenBaoCao() + "', `LINK` = '" + t.getLink() + "' WHERE `BAOCAO`.`MABAOCAO` = '" + t.getMaBaoCao() + "'";
+//            System.out.println(sql);
+            ketQua = st.executeUpdate(sql);
+
+            ConnectionToDB.close(conn);
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(BaoCaoDAO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        return 0;
     }
 
 }

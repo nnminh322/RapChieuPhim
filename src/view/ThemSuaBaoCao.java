@@ -8,6 +8,7 @@ import controller.ThemSuaBaoCaoController;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import model.BaoCaoModel;
 
 /**
  *
@@ -31,11 +32,26 @@ public class ThemSuaBaoCao extends javax.swing.JFrame {
         initComponents();
         init();
     }
-    public void init(){
+
+    public ThemSuaBaoCao(HomeUI homeUI, BaoCaoModel baoCaoModel) {
+        this.homeUI = homeUI;
+        initComponents();
+        init();
+        this.khoa(baoCaoModel);
+
+    }
+
+    public void init() {
         this.themSuaBaoCaoController = new ThemSuaBaoCaoController(this);
         ActionListener action = new ThemSuaBaoCaoController(this);
         this.jButton_Luu.addActionListener(action);
     }
+
+    public void khoa(BaoCaoModel baocaoModel) {
+        this.jTextField_MaBaoCao.setText(baocaoModel.getMaBaoCao());
+        this.jTextField_MaBaoCao.setEditable(false);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

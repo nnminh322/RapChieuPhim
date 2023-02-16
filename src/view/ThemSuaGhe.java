@@ -9,14 +9,17 @@ import controller.ThemSuaGheController;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import model.GheModel;
 
 /**
  *
  * @author nnminh322
  */
 public class ThemSuaGhe extends javax.swing.JFrame {
+
     public HomeUI homeUI;
     private ThemSuaGheController themSuaGheController;
+
     /**
      * Creates new form ThemSuaPhim
      */
@@ -30,11 +33,26 @@ public class ThemSuaGhe extends javax.swing.JFrame {
         initComponents();
         init();
     }
-    public void init(){
+
+    public ThemSuaGhe(HomeUI homeUI, GheModel gheModel) {
+        this.homeUI = homeUI;
+        initComponents();
+        init();
+        this.khoa(gheModel);
+
+    }
+
+    public void init() {
         this.themSuaGheController = new ThemSuaGheController(this);
         ActionListener action = new ThemSuaGheController(this);
         this.jButton_Luu.addActionListener(action);
     }
+
+    public void khoa(GheModel gheModel) {
+        this.jTextField_MaGhe.setText(gheModel.getMaGhe());
+        this.jTextField_MaGhe.setEditable(false);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

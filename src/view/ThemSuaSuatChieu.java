@@ -9,6 +9,7 @@ import controller.ThemSuaSuatChieuController;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import model.SuatChieuModel;
 
 /**
  *
@@ -32,13 +33,24 @@ public class ThemSuaSuatChieu extends javax.swing.JFrame {
         initComponents();
         init();
     }
+    public ThemSuaSuatChieu(HomeUI homeUI, SuatChieuModel suatchieuModel) {
+        this.homeUI = homeUI;
+        initComponents();
+        init();
+        this.khoa(suatchieuModel);
+
+    }
 
     public void init() {
         this.themSuaSuatChieuController = new ThemSuaSuatChieuController(this);
         ActionListener action = new ThemSuaSuatChieuController(this);
         this.jButton_Luu.addActionListener(action);
     }
-
+    
+    public void khoa(SuatChieuModel suatChieuModel){
+        this.jTextField_MaSuatChieu.setText(suatChieuModel.getMaSuatChieu());
+        this.jTextField_MaSuatChieu.setEditable(false);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

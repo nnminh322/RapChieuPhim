@@ -27,7 +27,7 @@ public class PhongChieuDAO implements DAOInterface<PhongChieuModel> {
 
             java.sql.Statement st = conn.createStatement();
 
-            String sql = "INSERT INTO `PHONGCHIEU` (`MAPHONGCHIEU`, `TENPHONGCHIEU`, `SUCCHUA`, `SOLUONGGHETRONG`) VALUES ('"+t.getMaPhongChieu()+"', '"+t.getTenPhongChieu()+"', '"+t.getSucChua()+"', '"+t.getSoLuongGheTrong()+"')";
+            String sql = "INSERT INTO `PHONGCHIEU` (`MAPHONGCHIEU`, `TENPHONGCHIEU`, `SUCCHUA`, `SOLUONGGHETRONG`) VALUES ('" + t.getMaPhongChieu() + "', '" + t.getTenPhongChieu() + "', '" + t.getSucChua() + "', '" + t.getSoLuongGheTrong() + "')";
 
 //            System.out.println(sql);
             ketQua = st.executeUpdate(sql);
@@ -40,13 +40,22 @@ public class PhongChieuDAO implements DAOInterface<PhongChieuModel> {
     }
 
     @Override
-    public int update(PhongChieuModel tCu, PhongChieuModel tMoi) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
     public int delete(PhongChieuModel t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int ketQua = 0;
+        try {
+            java.sql.Connection conn = new ConnectionToDB().getConnection();
+
+            java.sql.Statement st = conn.createStatement();
+
+            String sql = "DELETE FROM PHONGCHIEU WHERE `PHONGCHIEU`.`MAPHONGCHIEU` = '" + t.getMaPhongChieu() + "'";
+//            System.out.println(sql);
+            ketQua = st.executeUpdate(sql);
+
+            ConnectionToDB.close(conn);
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(PhongChieuDAO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        return 0;
     }
 
     @Override
@@ -84,6 +93,24 @@ public class PhongChieuDAO implements DAOInterface<PhongChieuModel> {
     @Override
     public ArrayList<PhongChieuModel> find(String Condition) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int update(PhongChieuModel t) {
+        int ketQua = 0;
+        try {
+            java.sql.Connection conn = new ConnectionToDB().getConnection();
+
+            java.sql.Statement st = conn.createStatement();
+            String sql = "UPDATE `PHONGCHIEU` SET `TENPHONGCHIEU` = '" + t.getTenPhongChieu() + "', `SUCCHUA` = '" + t.getSucChua() + "', `SOLUONGGHETRONG` = '" + t.getSoLuongGheTrong() + "' WHERE `PHONGCHIEU`.`MAPHONGCHIEU` = '" + t.getMaPhongChieu() + "'";
+//            System.out.println(sql);
+            ketQua = st.executeUpdate(sql);
+
+            ConnectionToDB.close(conn);
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(PhongChieuDAO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        return 0;
     }
 
 }

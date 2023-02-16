@@ -39,13 +39,23 @@ public class GheDAO implements DAOInterface<GheModel> {
     }
 
     @Override
-    public int update(GheModel tCu, GheModel tMoi) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
     public int delete(GheModel t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int ketQua = 0;
+        try {
+            java.sql.Connection conn = new ConnectionToDB().getConnection();
+
+            java.sql.Statement st = conn.createStatement();
+
+            String sql = "DELETE FROM GHE WHERE `GHE`.`MAGHE` = '" + t.getMaGhe() + "'";
+
+//            System.out.println(sql);
+            ketQua = st.executeUpdate(sql);
+
+            ConnectionToDB.close(conn);
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(GheDAO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        return 0;
     }
 
     @Override
@@ -81,6 +91,26 @@ public class GheDAO implements DAOInterface<GheModel> {
     @Override
     public ArrayList<GheModel> find(String Condition) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int update(GheModel t) {
+        int ketQua = 0;
+        try {
+            java.sql.Connection conn = new ConnectionToDB().getConnection();
+
+            java.sql.Statement st = conn.createStatement();
+
+            String sql = "UPDATE `GHE` SET `MAPHONG` = '" + t.getMaPhong() + "', `GIAGHE` = '" + t.getGiaGhe() + "', `SOGHE` = '" + t.getSoGhe() + "', `HANGGHE` = '" + t.getHangGhe() + "', `TRANGTHAIGHE` = '" + (t.isTrangThaiGhe() ? 1 : 0) + "' WHERE `GHE`.`MAGHE` = '" + t.getMaGhe() + "'";
+
+//            System.out.println(sql);
+            ketQua = st.executeUpdate(sql);
+
+            ConnectionToDB.close(conn);
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(GheDAO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        return 0;
     }
 
 }

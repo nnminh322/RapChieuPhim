@@ -38,14 +38,21 @@ public class ThemSuaSuatChieuController implements ActionListener {
 
             if (this.themSuaSuatChieu.getTitle().equals("Thêm mới suất chiếu")) {
                 this.insert(suatChieuModel);
-                JOptionPane.showMessageDialog(themSuaSuatChieu, "Đã lưu!");
-                this.themSuaSuatChieu.dispose();
+            }
+            if (this.themSuaSuatChieu.getTitle().equals("Sửa suất chiếu")) {
+                this.update(suatChieuModel);
             }
 
+            JOptionPane.showMessageDialog(themSuaSuatChieu, "Đã lưu!");
+            this.themSuaSuatChieu.dispose();
         }
     }
 
     private int insert(SuatChieuModel suatChieuModel) {
         return SuatChieuDAO.getInstance().insert(suatChieuModel);
+    }
+
+    private int update(SuatChieuModel suatchieuModel) {
+        return SuatChieuDAO.getInstance().update(suatchieuModel);
     }
 }

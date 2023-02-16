@@ -39,10 +39,16 @@ public class ThemSuaBaoCaoController implements ActionListener {
                     .equals("Thêm mới báo cáo")) {
 //                System.out.println(baocaoModel.toString());
                 this.insert(baoCaoModel);
-                JOptionPane.showMessageDialog(themSuaBaoCao, "Đã lưu!");
-                this.themSuaBaoCao.dispose();
-            }
 
+            }
+            if (this.themSuaBaoCao.getTitle()
+                    .equals("Thêm mới báo cáo")) {
+//                System.out.println(baocaoModel.toString());
+                this.update(baoCaoModel);
+
+            }
+            JOptionPane.showMessageDialog(themSuaBaoCao, "Đã lưu!");
+            this.themSuaBaoCao.dispose();
         }
     }
 
@@ -50,4 +56,7 @@ public class ThemSuaBaoCaoController implements ActionListener {
         return BaoCaoDAO.getInstance().insert(baocaoModel);
     }
 
+    private int update(BaoCaoModel baoCaoModel) {
+        return BaoCaoDAO.getInstance().update(baoCaoModel);
+    }
 }

@@ -469,7 +469,7 @@ public class HomeUI extends javax.swing.JFrame {
 
         jScrollPane6.setViewportView(jScrollPane5);
 
-        jButton_SuaPhongChieu.setText("Sửa phòng chiế");
+        jButton_SuaPhongChieu.setText("Sửa phòng chiếu");
 
         jButton_XoaPhongChieu.setText("Xoá phòng chiếu");
 
@@ -493,7 +493,7 @@ public class HomeUI extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton_SuaPhongChieu, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton_XoaPhongChieu, javax.swing.GroupLayout.Alignment.TRAILING))))
@@ -1199,4 +1199,54 @@ public class HomeUI extends javax.swing.JFrame {
         this.jButton_XoaBaoCao = jButton_XoaBaoCao;
     }
 
+    public PhimModel getPhim(int selected) {
+        String maPhim = this.jTable_Phim.getValueAt(selected, 0).toString();
+        String tenPhim = this.jTable_Phim.getValueAt(selected, 1).toString();
+        String theLoai = this.jTable_Phim.getValueAt(selected, 2).toString();
+        String nhaSX = this.jTable_Phim.getValueAt(selected, 3).toString();
+        int thoiLuong = Integer.parseInt(this.jTable_Phim.getValueAt(selected, 4).toString());
+        int doTuoi = Integer.parseInt(this.jTable_Phim.getValueAt(selected, 5).toString());
+        return new PhimModel(maPhim, tenPhim, theLoai, nhaSX, thoiLuong, doTuoi);
+    }
+
+    public SuatChieuModel getSuatChieu(int selected) {
+        String maSuatChieu = this.jTable_SuatChieu.getValueAt(selected, 0).toString();
+        String maPhim = this.jTable_SuatChieu.getValueAt(selected, 1).toString();
+        String tenPhim = this.jTable_SuatChieu.getValueAt(selected, 2).toString();
+        String khungGio = this.jTable_SuatChieu.getValueAt(selected, 3).toString();
+        return new SuatChieuModel(maSuatChieu, khungGio, tenPhim, maPhim);
+    }
+
+    public PhongChieuModel getPhongChieu(int selected) {
+        String maPhongChieu = this.jTable_PhongChieu.getValueAt(selected, 0).toString();
+        String tenPhongChieu = this.jTable_PhongChieu.getValueAt(selected, 1).toString();
+        int sucChua = Integer.parseInt(this.jTable_PhongChieu.getValueAt(selected, 2).toString());
+        int soLuongGheTrong = Integer.parseInt(this.jTable_PhongChieu.getValueAt(selected, 3).toString());
+        return new PhongChieuModel(maPhongChieu, tenPhongChieu, sucChua, soLuongGheTrong);
+    }
+
+    public GheModel getGhe(int selected) {
+        String maGhe = this.jTable_Ghe.getValueAt(selected, 0).toString();
+        int hangGhe = Integer.parseInt(this.jTable_Ghe.getValueAt(selected, 1).toString());
+        int soGhe = Integer.parseInt(this.jTable_Ghe.getValueAt(selected, 2).toString());
+        boolean trangThaiGhe = "1".equals(this.jTable_Ghe.getValueAt(selected, 3).toString()) || "true".equals(this.jTable_Ghe.getValueAt(selected, 3).toString());
+        String maPhong = this.jTable_Ghe.getValueAt(selected, 4).toString();
+        int giaGhe = Integer.parseInt(this.jTable_Ghe.getValueAt(selected, 4).toString());
+        return new GheModel(maGhe, maPhong, giaGhe, soGhe, hangGhe, trangThaiGhe);
+    }
+
+    public VeModel getVe(int selected) {
+        String maVe = this.jTable_Ve.getValueAt(selected, 0).toString();
+        String maPhim = this.jTable_Ve.getValueAt(selected, 1).toString();
+        String maSuatChieu = this.jTable_Ve.getValueAt(selected, 2).toString();
+        String maGhe = this.jTable_Ve.getValueAt(selected, 3).toString();
+        return new VeModel(maVe, maGhe, maSuatChieu, maPhim);
+    }
+
+    public BaoCaoModel getBaoCao(int selected) {
+        String maBaocao = this.jTable_BaoCao.getValueAt(selected, 0).toString();
+        String tenBaocao = this.jTable_BaoCao.getValueAt(selected, 1).toString();
+        String link = this.jTable_BaoCao.getValueAt(selected, 2).toString();
+        return new BaoCaoModel(maBaocao, tenBaocao, link);
+    }
 }

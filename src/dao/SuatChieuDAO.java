@@ -41,13 +41,23 @@ public class SuatChieuDAO implements DAOInterface<SuatChieuModel> {
     }
 
     @Override
-    public int update(SuatChieuModel tCu, SuatChieuModel tMoi) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
     public int delete(SuatChieuModel t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int ketQua = 0;
+        try {
+            java.sql.Connection conn = new ConnectionToDB().getConnection();
+
+            java.sql.Statement st = conn.createStatement();
+
+            String sql = "DELETE FROM SUATCHIEU WHERE `SUATCHIEU`.`MASUATCHIEU` = '" + t.getMaSuatChieu() + "'";
+
+//            System.out.println(sql);
+            ketQua = st.executeUpdate(sql);
+
+            ConnectionToDB.close(conn);
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(SuatChieuDAO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        return 0;
     }
 
     @Override
@@ -84,6 +94,26 @@ public class SuatChieuDAO implements DAOInterface<SuatChieuModel> {
     @Override
     public ArrayList<SuatChieuModel> find(String Condition) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int update(SuatChieuModel t) {
+        int ketQua = 0;
+        try {
+            java.sql.Connection conn = new ConnectionToDB().getConnection();
+
+            java.sql.Statement st = conn.createStatement();
+
+            String sql = "UPDATE `SUATCHIEU` SET `KHUNGGIO` = '"+t.getKhungGio()+"', `MAPHIM` = '"+t.getMaPhim()+"' WHERE `SUATCHIEU`.`MASUATCHIEU` = '"+t.getMaSuatChieu()+"'";
+
+//            System.out.println(sql);
+            ketQua = st.executeUpdate(sql);
+
+            ConnectionToDB.close(conn);
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(SuatChieuDAO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        return 0;
     }
 
 }

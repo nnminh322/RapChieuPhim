@@ -9,6 +9,7 @@ import controller.ThemSuaSuatChieuController;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import model.PhongChieuModel;
 
 /**
  *
@@ -33,10 +34,23 @@ public class ThemSuaPhongChieu extends javax.swing.JFrame {
         init();
     }
 
+    public ThemSuaPhongChieu(HomeUI homeUI, PhongChieuModel phongchieuModel) {
+        this.homeUI = homeUI;
+        initComponents();
+        init();
+        this.khoa(phongchieuModel);
+
+    }
+
     public void init() {
         ThemSuaPhongChieuController themSuaPhongChieuController = new ThemSuaPhongChieuController(this);
         ActionListener action = new ThemSuaPhongChieuController(this);
         this.jButton_Luu.addActionListener(action);
+    }
+
+    public void khoa(PhongChieuModel phongChieuModel) {
+        this.jTextField_MaPhongChieu.setText(phongChieuModel.getMaPhongChieu());
+        this.jTextField_MaPhongChieu.setEditable(false);
     }
 
     /**

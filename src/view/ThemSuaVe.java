@@ -8,14 +8,17 @@ import controller.ThemSuaVeController;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import model.VeModel;
 
 /**
  *
  * @author nnminh322
  */
 public class ThemSuaVe extends javax.swing.JFrame {
+
     public HomeUI homeUI;
     private ThemSuaVeController themSuaVeController;
+
     /**
      * Creates new form ThemSuaPhim
      */
@@ -29,11 +32,26 @@ public class ThemSuaVe extends javax.swing.JFrame {
         initComponents();
         init();
     }
-    public void init(){
+
+    public ThemSuaVe(HomeUI homeUI, VeModel veModel) {
+        this.homeUI = homeUI;
+        initComponents();
+        init();
+        this.khoa(veModel);
+
+    }
+
+    public void init() {
         ThemSuaVeController themSuaVeController = new ThemSuaVeController(this);
         ActionListener action = new ThemSuaVeController(this);
         this.jButton_Luu.addActionListener(action);
     }
+
+    public void khoa(VeModel veModel) {
+        this.jTextField_MaVe.setText(veModel.getMaVe());
+        this.jTextField_MaVe.setEditable(false);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -268,5 +286,5 @@ public class ThemSuaVe extends javax.swing.JFrame {
     public void setjTextField_MaVe(JTextField jTextField_MaVe) {
         this.jTextField_MaVe = jTextField_MaVe;
     }
-    
+
 }

@@ -36,14 +36,19 @@ public class ThemSuaVeController implements ActionListener {
 
             this.veModel = new VeModel(maVe, maGhe, maSuatChieu, maPhim);
 
-            if (this.themSuaVe.getTitle()
-                    .equals("Thêm mới vé")) {
+            if (this.themSuaVe.getTitle().equals("Thêm mới vé")) {
 //                System.out.println(veModel.toString());
                 this.insert(veModel);
-                JOptionPane.showMessageDialog(themSuaVe, "Đã lưu!");
-                this.themSuaVe.dispose();
+
             }
 
+            if (this.themSuaVe.getTitle().equals("Thêm mới vé")) {
+//                System.out.println(veModel.toString());
+                this.update(veModel);
+
+            }
+            JOptionPane.showMessageDialog(themSuaVe, "Đã lưu!");
+            this.themSuaVe.dispose();
         }
     }
 
@@ -51,4 +56,7 @@ public class ThemSuaVeController implements ActionListener {
         return VeDAO.getInstance().insert(veModel);
     }
 
+    private int update(VeModel veModel) {
+        return VeDAO.getInstance().update(veModel);
+    }
 }

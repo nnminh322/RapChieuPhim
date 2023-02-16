@@ -36,14 +36,22 @@ public class ThemSuaPhongChieuController implements ActionListener {
             this.phongChieuModel = new PhongChieuModel(maPhongChieu, tenPhongChieu, sucChua, soLuongGheTrong);
             if (this.themSuaPhongChieu.getTitle().equals("Thêm mới phòng chiếu")) {
                 this.insert(phongChieuModel);
-                JOptionPane.showMessageDialog(themSuaPhongChieu, "Đã lưu!");
-                this.themSuaPhongChieu.dispose();
-            }
 
+            }
+            if (this.themSuaPhongChieu.getTitle().equals("Sửa phòng chiếu")) {
+                this.update(phongChieuModel);
+
+            }
+            JOptionPane.showMessageDialog(themSuaPhongChieu, "Đã lưu!");
+            this.themSuaPhongChieu.dispose();
         }
     }
 
     private int insert(PhongChieuModel phongChieuModel) {
         return PhongChieuDAO.getInstance().insert(phongChieuModel);
+    }
+
+    private int update(PhongChieuModel phongchieuModel) {
+        return PhongChieuDAO.getInstance().update(phongchieuModel);
     }
 }

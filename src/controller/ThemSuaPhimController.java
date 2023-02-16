@@ -38,14 +38,21 @@ public class ThemSuaPhimController implements ActionListener {
             this.phimModel = new PhimModel(maPhim, tenPhim, theLoai, nhaSX, thoiLuong, doTuoi);
             if (this.themSuaPhim.getTitle().equals("Thêm mới phim")) {
                 this.insert(phimModel);
-                JOptionPane.showMessageDialog(themSuaPhim, "Đã lưu!");
-                this.themSuaPhim.dispose();
-            }
 
+            }
+            if (this.themSuaPhim.getTitle().equals(("Sửa phim"))) {
+                this.update(phimModel);
+            }
+            JOptionPane.showMessageDialog(themSuaPhim, "Đã lưu!");
+            this.themSuaPhim.dispose();
         }
     }
-    private int insert(PhimModel phimModel){
+
+    private int insert(PhimModel phimModel) {
         return PhimDAO.getInstance().insert(phimModel);
     }
 
+    private int update(PhimModel phimModel) {
+        return PhimDAO.getInstance().update(phimModel);
+    }
 }

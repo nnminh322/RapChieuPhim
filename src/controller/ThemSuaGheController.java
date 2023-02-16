@@ -41,10 +41,15 @@ public class ThemSuaGheController implements ActionListener {
             if (this.themSuaGhe.getTitle().equals("Thêm mới ghế")) {
 //                System.out.println(gheModel.toString());
                 this.insert(gheModel);
-                JOptionPane.showMessageDialog(themSuaGhe, "Đã lưu!");
-                this.themSuaGhe.dispose();
-            }
 
+            }
+            if (this.themSuaGhe.getTitle().equals("Sửa ghế")) {
+//                System.out.println(gheModel.toString());
+                this.update(gheModel);
+
+            }
+            JOptionPane.showMessageDialog(themSuaGhe, "Đã lưu!");
+            this.themSuaGhe.dispose();
         }
     }
 
@@ -52,4 +57,7 @@ public class ThemSuaGheController implements ActionListener {
         return GheDAO.getInstance().insert(gheModel);
     }
 
+    private int update(GheModel gheModel) {
+        return GheDAO.getInstance().update(gheModel);
+    }
 }

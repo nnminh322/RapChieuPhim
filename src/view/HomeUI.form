@@ -425,7 +425,7 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollPane6" min="-2" pref="617" max="-2" attributes="0"/>
-                              <EmptySpace pref="30" max="32767" attributes="0"/>
+                              <EmptySpace pref="28" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jButton_SuaPhongChieu" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButton_XoaPhongChieu" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -528,7 +528,7 @@
             </Container>
             <Component class="javax.swing.JButton" name="jButton_SuaPhongChieu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="S&#x1eed;a ph&#xf2;ng chi&#x1ebf;"/>
+                <Property name="text" type="java.lang.String" value="S&#x1eed;a ph&#xf2;ng chi&#x1ebf;u"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton_XoaPhongChieu">

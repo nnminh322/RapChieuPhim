@@ -23,13 +23,22 @@ public class PhimDAO implements DAOInterface<PhimModel> {
     }
 
     @Override
-    public int update(PhimModel tCu, PhimModel tMoi) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
     public int delete(PhimModel t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            int ketQua = 0;
+            java.sql.Connection conn = new ConnectionToDB().getConnection();
+
+            java.sql.Statement st = conn.createStatement();
+
+            String sql = "DELETE FROM PHIM WHERE `PHIM`.`MAPHIM` = '" + t.getMaPhim() + "'";
+//            System.out.println(sql);
+            ketQua = st.executeUpdate(sql);
+
+            ConnectionToDB.close(conn);
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(PhimDAO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        return 0;
     }
 
     @Override
@@ -81,6 +90,24 @@ public class PhimDAO implements DAOInterface<PhimModel> {
             java.sql.Statement st = conn.createStatement();
             String sql = "INSERT INTO `PHIM` (`MAPHIM`, `TENPHIM`, `THELOAI`, `NHASX`, `NAM`, `THOILUONG`, `DOTUOI`, `GIA`) VALUES ('" + t.getMaPhim() + "', '" + t.getTenPhim() + "', '" + t.getTheLoai() + "', '" + t.getNhaSX() + "', '" + t.getNam() + "', '" + t.getThoiLuong() + "', '" + t.getDoTuoi() + "', '" + t.getGia() + "')";
 
+//            System.out.println(sql);
+            ketQua = st.executeUpdate(sql);
+
+            ConnectionToDB.close(conn);
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(PhimDAO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
+
+    @Override
+    public int update(PhimModel t) {
+        int ketQua = 0;
+        try {
+            java.sql.Connection conn = new ConnectionToDB().getConnection();
+
+            java.sql.Statement st = conn.createStatement();
+            String sql = "UPDATE `PHIM` SET `TENPHIM` = '" + t.getTenPhim() + "', `THELOAI` = '" + t.getTheLoai() + "', `NHASX` = '" + t.getNhaSX() + "', `NAM` = '" + t.getNam() + "', `THOILUONG` = '" + t.getThoiLuong() + "', `DOTUOI` = '" + t.getDoTuoi() + "', `GIA` = '" + t.getGia() + "' WHERE `PHIM`.`MAPHIM` = '" + t.getMaPhim() + "'";
 //            System.out.println(sql);
             ketQua = st.executeUpdate(sql);
 

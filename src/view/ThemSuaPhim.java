@@ -8,6 +8,7 @@ import controller.ThemSuaPhimController;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import model.PhimModel;
 
 /**
  *
@@ -29,10 +30,23 @@ public class ThemSuaPhim extends javax.swing.JFrame {
         init();
     }
 
+    public ThemSuaPhim(HomeUI homeUI, PhimModel phimModel) {
+        this.homeUI = homeUI;
+        initComponents();
+        init();
+        this.khoa(phimModel);
+
+    }
+
     public void init() {
         this.themSuaPhimController = new ThemSuaPhimController(this);
         ActionListener action = new ThemSuaPhimController(this);
         this.jButton_Luu.addActionListener(action);
+    }
+
+    public void khoa(PhimModel phimModel) {
+        this.jTextField_MaPhim.setText(phimModel.getMaPhim());
+        this.jTextField_MaPhim.setEditable(false);
     }
 
     /**
