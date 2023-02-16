@@ -25,7 +25,8 @@ public class InVe {
         return new InVe();
     }
 
-    public ArrayList<InVeModel> in(VeModel veModel) {
+    public InVeModel in(VeModel veModel) {
+        ArrayList<InVeModel> listInVeModel = new ArrayList<InVeModel>();
         try {
             java.sql.Connection conn = new ConnectionToDB().getConnection();
 
@@ -41,11 +42,12 @@ public class InVe {
                 String soGhe = rs.getString("SOGHE");
                 String gia = rs.getString("GIA");
                 inVeModel = new InVeModel(tenPhim, khungGio, phongChieu, hangGhe, soGhe, gia);
-                ConnectionToDB.close(conn);
+                listInVeModel.add(inVeModel);
             }
+            ConnectionToDB.close(conn);
         } catch (SQLException ex) {
             Logger.getLogger(InVe.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return inVeModel;
+        return listInVeModel.get(0);
     }
 }

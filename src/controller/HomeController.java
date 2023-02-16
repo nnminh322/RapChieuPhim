@@ -239,6 +239,7 @@ public class HomeController implements ActionListener {
             else{
                 InVeModel inVeModel = InVe.getInstance().in(homeUI.getVe(selected));
                 this.inVe = new view.InVe(inVeModel);
+                inVe.setVisible(true);
             }
         }
     }
