@@ -5,6 +5,7 @@
         <group>
             <file>file:/Users/nnminh322/NetBeansProjects/RapChieuPhim/src/view/InVe.java</file>
             <file>file:/Users/nnminh322/NetBeansProjects/RapChieuPhim/src/view/ThemSuaGhe.java</file>
+            <file>file:/Users/nnminh322/NetBeansProjects/RapChieuPhim/src/service/InVe.java</file>
             <file>file:/Users/nnminh322/NetBeansProjects/RapChieuPhim/src/view/HomeUI.java</file>
             <file>file:/Users/nnminh322/NetBeansProjects/RapChieuPhim/src/controller/HomeController.java</file>
             <file>file:/Users/nnminh322/NetBeansProjects/RapChieuPhim/src/dao/VeDAO.java</file>
@@ -24,6 +25,7 @@
             <file>file:/Users/nnminh322/NetBeansProjects/RapChieuPhim/src/dao/PhongChieuDAO.java</file>
             <file>file:/Users/nnminh322/NetBeansProjects/RapChieuPhim/src/view/XacNhan.java</file>
             <file>file:/Users/nnminh322/NetBeansProjects/RapChieuPhim/src/controller/ThemSuaGheController.java</file>
+            <file>file:/Users/nnminh322/NetBeansProjects/RapChieuPhim/src/model/InVeModel.java</file>
             <file>file:/Users/nnminh322/NetBeansProjects/RapChieuPhim/src/dao/GheDAO.java</file>
             <file>file:/Users/nnminh322/NetBeansProjects/RapChieuPhim/src/dao/DAOInterface.java</file>
             <file>file:/Users/nnminh322/NetBeansProjects/RapChieuPhim/src/controller/ThemSuaPhimController.java</file>
