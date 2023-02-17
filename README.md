@@ -10,8 +10,9 @@
         Bổ sung thư viện mysql-connector hoặc các thư viện kết nối tới cơ sở dũ liệu tương tự.
         Backup cơ sở dữ liệu đã có đi kèm trong file BackUpDataBase.
         Cấu hình lại thông tin kết nối tới cơ sở dữ liệu trong class ConnectionToDB.
-        Các dạng dữ liệu và tính năng
-
+        Chạy file RapChieuPhim trong package rapchieuphim
+        
+Các dạng dữ liệu và tính năng
 **Dạng dữ liệu**
 Phần mềm Rạp Chiếu Phim chứa các dạng dữ liệu sau:
 
