@@ -8,7 +8,7 @@
         Để sử dụng phần mềm Rạp Chiếu Phim, bạn cần thực hiện các bước sau:
         Tải về mã nguồn từ Github.
         Bổ sung thư viện mysql-connector hoặc các thư viện kết nối tới cơ sở dũ liệu tương tự.
-        Backup cơ sở dữ liệu đã có đi kèm trong file BackUpDataBase.
+        Backup cơ sở dữ liệu đã có đi kèm trong package BackUpDataBase.
         Cấu hình lại thông tin kết nối tới cơ sở dữ liệu trong class ConnectionToDB.
         Chạy file RapChieuPhim trong package rapchieuphim
         
@@ -22,6 +22,7 @@ Phần mềm Rạp Chiếu Phim chứa các dạng dữ liệu sau:
         Ghế: thông tin về một ghế trong phòng chiếu.
         Vé: thông tin về một vé.
         Báo cáo: thông tin về các doanh thu, suất chiếu và vé đã bán.
+
 **Tính năng**
 Phần mềm Rạp Chiếu Phim cung cấp các tính năng sau:
 
