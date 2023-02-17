@@ -8,7 +8,7 @@
         Để sử dụng phần mềm Rạp Chiếu Phim, bạn cần thực hiện các bước sau:
         Tải về mã nguồn từ Github.
         Bổ sung thư viện mysql-connector hoặc các thư viện kết nối tới cơ sở dũ liệu tương tự.
-        Backup cơ sở dữ liệu đã có đi kèm trong package Data.
+        Backup cơ sở dữ liệu đã có đi kèm trong file BackUpDataBase.
         Cấu hình lại thông tin kết nối tới cơ sở dữ liệu trong class ConnectionToDB.
         Các dạng dữ liệu và tính năng
 
